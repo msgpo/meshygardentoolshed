@@ -1,28 +1,15 @@
 var mosca = require('mosca')
 
-var _ascoltatore = {
-  //using ascoltatore
-  type: 'mongo',		
-  url: 'mongodb://localhost:27017/mqtt',
-  pubsubCollection: 'ascoltatori',
-  mongo: {}
-};
-
-var _moscaSettings = {
-  port: 1883,
-  _backend: _ascoltatore,
-  _persistence: {
-    factory: mosca.persistence.Mongo,
-    url: 'mongodb://localhost:27017/mqtt'
+var moscaSettings = function() {
+  // for heroku 
+  if (process.env.NODE_ENV == 'production') {
+    return { port: process.env.PORT || 1883 }
+  } else {
+    return { port: 1883, host: '0.0.0.0' }
   }
-};
-
-var moscaSettings = {
-  port: 1883,
-  host: '0.0.0.0'
 }
 
-var server = new mosca.Server(moscaSettings);
+var server = new mosca.Server(moscaSettings());
 server.on('ready', setup);
 
 server.on('clientConnected', function(client) {
