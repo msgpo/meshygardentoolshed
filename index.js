@@ -5,7 +5,7 @@ var moscaSettings = function() {
   if (process.env.NODE_ENV == 'production') {
     console.log('hello production');
     var config = {};
-    config.port = process.env.PORT || 1883;
+    config.port = (1 * process.env.PORT) || 1883;
     console.log(JSON.stringify(config));
     return config;
   } else {
