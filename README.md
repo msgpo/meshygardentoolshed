@@ -9,4 +9,15 @@ npm 4.2.0+
 ```npm install```
 
 # run
-```npm run start```
+Executing ```npm run start`` should show something like:
+
+```
+[...]
+Mosca server is up and running
+[...]
+```
+
+`
+
+# heroku
+mqtt broker running at meshygardenapp.herokuapp.com on port 80.
