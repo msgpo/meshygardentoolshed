@@ -9,7 +9,7 @@ npm 4.2.0+
 ```npm install```
 
 # run
-Executing ```npm run start`` should show something like:
+Executing ```npm run start``` should show something like:
 
 ```
 [...]
