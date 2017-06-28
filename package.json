@@ -1,0 +1,27 @@
+{
+  "name": "meshygardentoolshed",
+  "version": "0.0.1",
+  "description": "a service to store gardenmesh measurements Edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudomesh/meshygardentoolshed.git"
+  },
+  "keywords": [
+    "sudomesh",
+    "garden",
+    "sheds"
+  ],
+  "author": "Jorrit and Eve",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sudomesh/meshygardentoolshed/issues"
+  },
+  "homepage": "https://github.com/sudomesh/meshygardentoolshed#readme",
+  "dependencies": {
+    "mosca": "^2.5.1"
+  }
+}
