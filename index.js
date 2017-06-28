@@ -3,7 +3,9 @@ var mosca = require('mosca')
 var moscaSettings = function() {
   // for heroku 
   if (process.env.NODE_ENV == 'production') {
-    return { port: process.env.PORT || 1883 }
+    var config = {};
+    config.port = process.env.PORT || 1883;
+    return config;
   } else {
     return { port: 1883, host: '0.0.0.0' }
   }
