@@ -6,6 +6,7 @@ var moscaSettings = function() {
     console.log('hello production');
     var config = {};
     config.port = process.env.PORT || 1883;
+    console.log(JSON.stringify(config));
     return config;
   } else {
     return { port: 1883, host: '0.0.0.0' }
