@@ -23,5 +23,9 @@
   "homepage": "https://github.com/sudomesh/meshygardentoolshed#readme",
   "dependencies": {
     "mosca": "^2.5.1"
+  },
+  engines": {
+    "node": "7.10.0",
+    "npm": "4.2.0"
   }
 }
