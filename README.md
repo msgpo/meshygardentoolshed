@@ -20,4 +20,4 @@ Mosca server is up and running
 `
 
 # heroku
-mqtt broker running at meshygardenapp.herokuapp.com on port 80.
+mqtt broker running at meshygardenshed.herokuapp.com on port 80.
