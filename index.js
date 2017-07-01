@@ -1,5 +1,5 @@
 var mosca = require('mosca');
-var message = require('message');
+var message = require('./message');
 
 var moscaSettings = function() {
   // for heroku 
