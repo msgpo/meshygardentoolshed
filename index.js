@@ -21,10 +21,9 @@ server.on('clientConnected', function(client) {
 });
 
 // fired when a message is received
-server.on('published', function(packet, client) {
+server.on('published', function(packet) {
   console.error('Published', packet.payload);
   var msg = message.parse(packet.payload);
-  msg.source = client.id;
   if (msg) {
       console.log(message.toTsv(msg));
   } else {
