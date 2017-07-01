@@ -10,9 +10,11 @@ var parse = function (buffer) {
 };
 
 test('parse message', function (t) {
-    t.plan(4);
+    t.plan(5);
     var msg = Buffer.from([0x74, 0x65, 0x6d, 0x70, 0x09, 0x31, 0x09, 0x32, 0x35, 0x2e, 0x38, 0x30, 0x30, 0x09, 0x43, 0x0a]);
+    t.equals(msg.toString(), 'temp\t1\t25.800\tC\n');
     var m = parse(msg);
+
     t.equals(m.type, 'temp');
     t.equals(m.seq, '1');
     t.equals(m.value, 25.8);
