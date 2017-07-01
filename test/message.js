@@ -22,3 +22,21 @@ test('parse another message', function (t) {
     t.equals(m.value, 30.7);
     t.equals(m.unit, 'C');
 });
+
+test('non-message', function (t) {
+    t.plan(1);
+    var msg = Buffer.from([]);
+    var m = message.parse(msg);
+    t.notOk(m);
+});
+
+test('toTsv', function (t) {
+    t.plan(1);
+    t.equals(message.toTsv({type: 'temp',
+        seq: 1,
+        value: '12.3',
+        unit: 'C',
+        timestamp: 1498927890580,
+        source: 'some source'}),
+        'temp\t1\t12.3\tC\t1498927890580\tsome source');
+});

@@ -1,14 +1,5 @@
 var mosca = require('mosca');
-var Readable = require('stream').Readable;
-var rs = Readable();
-
-var c = 97;
-rs._read = function () {
-    rs.push(String.fromCharCode(c++));
-    if (c > 'z'.charCodeAt(0)) rs.push(null);
-};
-
-rs.pipe(process.stdout);
+var message = require('message');
 
 var moscaSettings = function() {
   // for heroku 
@@ -32,6 +23,11 @@ server.on('clientConnected', function(client) {
 // fired when a message is received
 server.on('published', function(packet, client) {
   console.error('Published', packet.payload);
+  var msg = message.parse(packet.payload);
+  if (msg) {
+      console.log([msg.type, ])
+  }
+  console.log()
 });
 
 server.on('error', function(client) {

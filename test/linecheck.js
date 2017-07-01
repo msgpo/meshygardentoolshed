@@ -1,19 +1,20 @@
 var test = require('tape');
 var mqtt = require('mqtt');
 
-var assertPubSub = function(t, url) {
+var assertPubSub = function(t, url, msg) {
+  var text = msg || 'Hello mqtt';
   var client  = mqtt.connect(url);
 
   client.on('connect', function () {
     client.subscribe('presence');
-    client.publish('presence', 'Hello mqtt');
+    client.publish('presence', text);
   });
 
   client.on('message', function (topic, message) {
     // message is Buffer
     console.log(message.toString());
     client.end();
-    t.equal(message.toString(), 'Hello mqtt');
+    t.equal(message.toString(), text);
   });
 };
 
@@ -24,7 +25,7 @@ test('pub linecheck', function(t) {
 
 test('peoples linecheck', function(t) {
   t.plan(1);
-  assertPubSub(t, 'mqtt://peoplesopen.net');
+  assertPubSub(t, 'mqtt://peoplesopen.net', 'temp\t1\t25.800\tC\n');
 });
 
 
