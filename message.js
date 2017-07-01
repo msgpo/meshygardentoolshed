@@ -13,6 +13,6 @@ module.exports = {
         return msg;
     },
     toTsv: function(msg) {
-       return [msg.type, msg.seq, msg.value, msg.unit, msg.timestamp, msg.source].join('\t')
+       return [msg.type, msg.seq, msg.value, msg.unit, 1*msg.timestamp, msg.source].join('\t')
     }
 };
