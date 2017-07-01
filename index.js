@@ -25,9 +25,10 @@ server.on('published', function(packet, client) {
   console.error('Published', packet.payload);
   var msg = message.parse(packet.payload);
   if (msg) {
-      console.log([msg.type, ])
+      console.log(message.toTsv(msg.type));
+  } else {
+      console.error('failed to parse [' + packet.payload + ']');
   }
-  console.log()
 });
 
 server.on('error', function(client) {
