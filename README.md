@@ -16,8 +16,3 @@ Executing ```npm run start``` should show something like:
 Mosca server is up and running
 [...]
 ```
-
-`
-
-# heroku
-mqtt broker running at meshygardenshed.herokuapp.com on port 80.
