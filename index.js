@@ -24,6 +24,7 @@ server.on('clientConnected', function(client) {
 server.on('published', function(packet, client) {
   console.error('Published', packet.payload);
   var msg = message.parse(packet.payload);
+  msg.source = client.id;
   if (msg) {
       console.log(message.toTsv(msg));
   } else {
