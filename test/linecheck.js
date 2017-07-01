@@ -22,4 +22,9 @@ test('pub linecheck', function(t) {
   assertPubSub(t, 'mqtt://test.mosca.io');
 });
 
+test('peoples linecheck', function(t) {
+  t.plan(1);
+  assertPubSub(t, 'mqtt://peoplesopen.net');
+});
+
 
