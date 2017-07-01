@@ -10,6 +10,9 @@ module.exports = {
                 timestamp: new Date(),
                 source: 'unknown' };
         }
+        if (parts.length > 4) {
+            msg.source = parts[4];
+        }
         return msg;
     },
     toTsv: function(msg) {
