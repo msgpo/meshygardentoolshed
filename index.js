@@ -25,7 +25,7 @@ server.on('published', function(packet, client) {
   console.error('Published', packet.payload);
   var msg = message.parse(packet.payload);
   if (msg) {
-      console.log(message.toTsv(msg.type));
+      console.log(message.toTsv(msg));
   } else {
       console.error('failed to parse [' + packet.payload + ']');
   }
@@ -38,7 +38,7 @@ server.on('error', function(client) {
 // fired when the mqtt server is ready
 function setup() {
   console.error('Mosca server is up and running')
-};
+}
 
 
 //module.exports = { parse: parse };
