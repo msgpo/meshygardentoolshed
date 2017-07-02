@@ -17,7 +17,7 @@ var server = new mosca.Server(moscaSettings());
 server.on('ready', setup);
 
 server.on('clientConnected', function(client) {
-  console.error('client connected', client.id);
+  logError('client connected', client.id);
 });
 
 // fired when a message is received
@@ -27,17 +27,21 @@ server.on('published', function(packet) {
   if (msg) {
       console.log(message.toTsv(msg));
   } else {
-      console.error('failed to parse [' + packet.payload + ']');
+      logError('failed to parse [' + packet.payload + ']');
   }
 });
 
 server.on('error', function(client) {
-  console.error('some errors');
+  logError('some errors');
 });
 
 // fired when the mqtt server is ready
 function setup() {
-  console.error('Mosca server is up and running')
+  logError('Mosca server is up and running')
+}
+
+var logError = function() {
+  console.error('[' + new Date() + ']: [' + msg + ']');
 }
 
 
