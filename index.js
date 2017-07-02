@@ -40,7 +40,7 @@ function setup() {
   logError('Mosca server is up and running')
 }
 
-var logError = function() {
+var logError = function(msg) {
   console.error('[' + new Date() + ']: [' + msg + ']');
 }
 
