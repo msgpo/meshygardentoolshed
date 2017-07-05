@@ -1,2 +1,2 @@
 #! /bin/bash
-nohup node ./index >> meshygardentoolshed.tsv 2> error.log &
+nohup node ./index >> meshygarden.tsv 2> error.log &

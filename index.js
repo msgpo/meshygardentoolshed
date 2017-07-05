@@ -2,15 +2,7 @@ var mosca = require('mosca');
 var message = require('./message');
 
 var moscaSettings = function() {
-  // for heroku 
-  if (process.env.NODE_ENV == 'production') {
-    console.log('hello heroku');
-    var config = {};
-    config.port = (1 * process.env.PORT) || 1883;
-    return config;
-  } else {
-    return { port: 1883, host: '0.0.0.0' }
-  }
+  return { port: 1883, host: '0.0.0.0' };
 }
 
 var server = new mosca.Server(moscaSettings());
