@@ -56,9 +56,7 @@ function readSingleFile(evt) {
         ESParray = tsvToArray(reader.result);
 
         var timevalue = ESParray.map(function(elem){
-            //var time = new Date(elem[4]);
-            //return time.getTime();
-            var dateString = moment.unix(elem[4]/1000).format('dddd MMMM Do YYYY, h:mm:ss a');
+            var dateString = moment.unix(elem[4]/1000).format('MM/DD/YYYY HH:mm');
             return dateString;
         });
 
@@ -123,26 +121,27 @@ var chartOptions = {
     xAxes: [{
       type: "time",
       time: {
-        unit: 'hour',
-        unitStepSize: 0.5,
-        round: 'hour',
+        format: 'MM/DD/YYYY HH:mm'
+        /*unit: 'week',
+        unitStepSize: 30,
+        round: 'week',
         tooltipFormat: "h:mm:ss a",
         displayFormats: {
-          hour: 'MMM D, h:mm A'
-        }
+          parser: false,
+          max: moment().startOf('year'),
+          min: moment().endOf('year'),
+          'millisecond': 'SSS [ms]',
+          'second': 'h:mm:ss a', // 11:20:01 AM
+          'minute': 'h:mm:ss a', // 11:20:01 AM
+          'hour': 'MMM D, hA', // Sept 4, 5PM
+          'day': 'MMM Do', // Sep 4 2015
+          'week': 'll', // Week 46, or maybe "[W]WW - YYYY" ?
+          'month': 'MMM YYYY', // Sept 2015
+          'quarter': '[Q]Q - YYYY', // Q3
+          'year': 'YYYY', // 2015
+        }*/
       }
     }],
-    yAxes: [{
-      gridLines: {
-        color: "black",
-        borderDash: [2, 5],
-      },
-      scaleLabel: {
-        display: true,
-        labelString: "Speed in Miles per Hour",
-        fontColor: "green"
-      }
-    }]
   }
 };
 
@@ -162,8 +161,8 @@ function drawChart(x, y1){
                 data: y2,
                 backgroundColor: "rgba(255,153,0,0.4)"
             }*/]
-        }
-        //options: chartOptions
+        },
+        options: chartOptions
     });
 
 var select1 = document.getElementById("select1");
