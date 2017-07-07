@@ -1,0 +1,153 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+  <style> body {padding: 0; margin: 0;} </style>
+</head>
+
+<body>
+
+<input type="file" id="fileinput" />
+
+<select id="chartType">
+</select>
+<select name="select1" id="select1">
+    <option value="">-- select a value --</option>
+    <option value="temp">temp</option>
+    <option value="humd">humd</option>
+    <option value="soil">soil</option>
+</select>
+<select name="select2" id="select2">
+</select>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<pre id="fileDisplayArea"><pre>
+
+<script>
+
+// Check for the various File API support.
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  // Great success! All the File APIs are supported.
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+
+function readSingleFile(evt) {
+    //Retrieve the first (and only!) File from the FileList object
+    var f = evt.target.files[0]; 
+    var fileDisplayArea = document.getElementById('fileDisplayArea');
+    if (f) {
+      var reader = new FileReader();
+      reader.onload = function(e) { 
+	      var contents = e.target.result;
+        alert( "Got the file.n" 
+              +"name: " + f.name + "n"
+              +"type: " + f.type + "n"
+              +"size: " + f.size + " bytesn"
+              + "starts with: " + contents.substr(1, contents.indexOf("n"))
+        );  
+        fileDisplayArea.innerText = reader.result;
+
+        var ESParray = [];
+        var chartType = document.getElementById("chartType");
+        
+        ESParray = tsvToArray(reader.result);
+
+        var timevalue = ESParray.map(function(elem){
+            //var time = new Date(elem[4]);
+            //return time.getTime();
+            return elem[4];
+        });
+
+        var sensortype = ESParray.map(function(elem){
+            return elem[0]
+        });
+
+        var data = ESParray.map(function(elem){
+            return elem[2]
+        });
+
+        var tempdata = ESParray.map(function(elem){
+            if(elem[0] == "temp"){
+                return elem[2]
+            }
+        });
+       
+        console.log(tempdata)
+
+        sensortype  = sensortype.filter(function(elem, i, sensortype) {
+                return sensortype.indexOf(elem) === i;
+            }
+        );
+        
+        sensortype.map(function(elem){
+            var o = document.createElement("option");
+            o.value = elem;
+            o.text = elem;
+            chartType.appendChild(o);
+        }); 
+
+        console.log(timevalue);
+        console.log(sensortype);
+        drawChart(timevalue, tempdata);
+      }
+      reader.readAsText(f);
+    } else { 
+      alert("Failed to load file");
+    }
+}
+
+document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
+//document.getElementById('chartType')
+
+function tsvToArray (tsv) {
+    rows  = tsv.split("\n");
+    return rows.map(function (row) {
+    	return row.split("\t");
+    });
+};
+
+function drawChart(x, y1){
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: x,
+            datasets: [{
+                label: 'temp',
+                data: y1,
+                backgroundColor: "rgba(153,255,51,0.4)"
+            }/*, {
+                label: 'humidity',
+                data: y2,
+                backgroundColor: "rgba(255,153,0,0.4)"
+            }*/]
+        }
+    });
+
+var select1 = document.getElementById("select1");
+var select2 = document.getElementById("select2");
+
+select1.onchange = function() {
+    // empty select2
+    while (select2.firstChild) {
+        select2.removeChild(select2.firstChild);
+    }
+    if (select1.selectedIndex == 0) {
+        return;
+    }
+    for (var i = select1.selectedIndex; i < select1.options.length; i++) {
+        var o = document.createElement("option");
+        o.value = select1.options[i].value;
+        o.text = select1.options[i].text;
+        select2.appendChild(o);
+    }
+}
+}
+
+</script>
+</body>
+</html>
+
