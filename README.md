@@ -16,3 +16,13 @@ Executing ```npm run start``` should show something like:
 Mosca server is up and running
 [...]
 ```
+
+# charting
+visualizing data with chart.js  
+this only in prototype mode right now, but could be added to peoplesopen.net
+to view example locally, clone repo and run,
+```
+python -m SimpleHTTPServer
+```
+or a webserver of your choice, then navigate to your localhost in a browser.
+
