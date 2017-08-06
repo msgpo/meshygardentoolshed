@@ -101,7 +101,7 @@ function httpGetAsync(theUrl, callback){
 }
 
 document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
-httpGetAsync("/meshygarden.tsv.example", parseData);
+httpGetAsync("https://peoplesopen.net/meshygarden.tsv", parseData);
 
 var chartOptions = {
   legend: {
