@@ -7,24 +7,24 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
 function readSingleFile(evt) {
     //Retrieve the first (and only!) File from the FileList object
-    var f = evt.target.files[0]; 
+    var f = evt.target.files[0];
     var fileDisplayArea = document.getElementById('fileDisplayArea');
     if (f) {
       var reader = new FileReader();
-      reader.onload = function(e) { 
+      reader.onload = function(e) {
 	      var contents = e.target.result;
-        alert( "Got the file.n" 
+        alert( "Got the file.n"
               +"name: " + f.name + "n"
               +"type: " + f.type + "n"
               +"size: " + f.size + " bytesn"
               + "starts with: " + contents.substr(1, contents.indexOf("n"))
-        );  
+        );
         fileDisplayArea.innerText = reader.result;
-        parseData(reader.result); 
+        parseData(reader.result);
       }
       reader.readAsText(f);
     }
-    else { 
+    else {
        alert("Failed to load file");
     }
 }
@@ -33,7 +33,7 @@ function parseData(inputfile) {
 
         var ESParray = [];
         var chartType = document.getElementById("chartType");
-        
+
         ESParray = tsvToArray(inputfile);
 
         var sensortype = ESParray.map(function(elem){
@@ -50,7 +50,7 @@ function parseData(inputfile) {
         var tempdata = temparray.map(function(elem){
             return elem[2]
         });
-        
+
         var humiarray = ESParray.filter(function(elem){
             return elem[0] == "humi"
         });
@@ -62,25 +62,25 @@ function parseData(inputfile) {
             var dateString = moment.unix(elem[4]/1000).format('MM/DD/YYYY HH:mm');
             return dateString;
         });
-       
+
         console.log(tempdata)
 
         sensortype  = sensortype.filter(function(elem, i, sensortype) {
                 return sensortype.indexOf(elem) === i;
             }
         );
-        
+
         sensortype.map(function(elem){
             var o = document.createElement("option");
             o.value = elem;
             o.text = elem;
             chartType.appendChild(o);
-        }); 
+        });
 
         console.log(timevalue);
         console.log(sensortype);
         drawChart(timevalue, tempdata);
-} 
+}
 
 
 function tsvToArray (tsv) {
@@ -92,16 +92,16 @@ function tsvToArray (tsv) {
 
 function httpGetAsync(theUrl, callback){
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
+    xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             callback(xmlHttp.responseText);
     }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
     xmlHttp.send(null);
 }
 
 document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
-httpGetAsync("https://peoplesopen.net/meshygarden.tsv", parseData);
+httpGetAsync("../meshygarden.tsv", parseData);
 
 var chartOptions = {
   legend: {
