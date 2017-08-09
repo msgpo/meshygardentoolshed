@@ -15,11 +15,14 @@ server.on('clientConnected', function(client) {
 // fired when a message is received
 server.on('published', function(packet) {
   console.error('Published', packet.payload);
-  var msg = message.parse(packet.payload);
-  if (msg) {
-      console.log(message.toTsv(msg));
-  } else {
+  var data = message.parse(packet.payload);
+  if (data.isEmpty) {
       logError('failed to parse [' + packet.payload + ']');
+  }
+  else {
+    data.map(message.toTsv).forEach(function (msg) {
+        console.log(msg);
+    })
   }
 });
 

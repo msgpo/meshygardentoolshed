@@ -25,7 +25,7 @@ test('pub linecheck', function(t) {
 
 test('peoples linecheck', function(t) {
   t.plan(1);
-  assertPubSub(t, 'mqtt://peoplesopen.net', 'temp\t1\t25.800\tC\n');
+  assertPubSub(t, 'mqtt://peoplesopen.net', 'temp 25.800 C\thumi 56.1 pct\tsoil 766 pct\ttest');
 });
 
 

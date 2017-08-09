@@ -1,21 +1,21 @@
 module.exports = {
     parse: function (buffer) {
-        var parts = buffer.toString().trim().split('\t');
-        var msg = undefined;
-        if (parts.length > 3) {
-            msg = { type: parts[0],
-                seq: parts[1],
-                value: 1 * parts[2],
-                unit: parts[3],
-                timestamp: new Date(),
-                source: 'unknown' };
-        }
-        if (parts.length > 4) {
-            msg.source = parts[4];
-        }
-        return msg;
+        var timestamp = new Date();
+        var input = JSON.parse(buffer.toString().trim());
+        return input.data.map(function (data) {
+            data.value = 1 * data.value;
+            data.timestamp = 1 * timestamp;
+            data.source = input.source;
+            return data;
+        });
     },
-    toTsv: function(msg) {
-       return [msg.type, msg.seq, msg.value, msg.unit, 1*msg.timestamp, msg.source].join('\t')
+    toTsv: function (msg) {
+        return [
+            msg.type,
+            msg.value,
+            msg.unit,
+            msg.timestamp,
+            msg.source
+        ].join('\t')
     }
 };

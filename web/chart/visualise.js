@@ -42,21 +42,21 @@ function parseData(inputfile) {
   });
 
   var data = ESParray.map(function (elem) {
-    return elem[2]
+    return elem[1]
   });
 
   var temparray = ESParray.filter(function (elem) {
     return elem[0] == "temp"
   });
   var tempdata = temparray.map(function (elem) {
-    return elem[2]
+    return elem[1]
   });
 
   var humiarray = ESParray.filter(function (elem) {
     return elem[0] == "humi"
   });
   var humidata = humiarray.map(function (elem) {
-    return elem[2]
+    return elem[1]
   });
 
   var timevalue = temparray.map(function (elem) {
