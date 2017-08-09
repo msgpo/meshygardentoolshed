@@ -1,13 +1,20 @@
 module.exports = {
     parse: function (buffer) {
-        var timestamp = new Date();
-        var input = JSON.parse(buffer.toString().trim());
-        return input.data.map(function (data) {
-            data.value = 1 * data.value;
-            data.timestamp = 1 * timestamp;
-            data.source = input.source;
-            return data;
-        });
+        try {
+            var json = JSON.parse(buffer.toString().trim());
+            var timestamp = new Date();
+            return Object.values(json.data).map(function (msg) {
+                msg.type = msg.type + "";
+                msg.value = 1 * msg.value;
+                msg.unit = msg.unit + "";
+                msg.timestamp = 1 * timestamp;
+                msg.source = json.source + "";
+                return msg;
+            });
+        }
+        catch (e) {
+            return [];
+        }
     },
     toTsv: function (msg) {
         return [

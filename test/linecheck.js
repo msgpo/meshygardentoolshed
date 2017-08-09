@@ -25,7 +25,7 @@ test('pub linecheck', function(t) {
 
 test('peoples linecheck', function(t) {
   t.plan(1);
-  assertPubSub(t, 'mqtt://peoplesopen.net', 'temp 25.800 C\thumi 56.1 pct\tsoil 766 pct\ttest');
+  assertPubSub(t, 'mqtt://peoplesopen.net', '{"data":{"humi":{"value":"60.400","type":"humi","unit":"pct"},"temp":{"value":"22.0","type":"temp","unit":"C"},"soil":{"value":757,"type":"soil","unit":"pct"}},"source":11605683}');
 });
 
 

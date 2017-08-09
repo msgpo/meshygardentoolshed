@@ -16,7 +16,7 @@ server.on('clientConnected', function(client) {
 server.on('published', function(packet) {
   console.error('Published', packet.payload);
   var data = message.parse(packet.payload);
-  if (data.isEmpty) {
+  if (data.length < 1) {
       logError('failed to parse [' + packet.payload + ']');
   }
   else {
