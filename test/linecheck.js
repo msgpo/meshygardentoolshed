@@ -23,9 +23,12 @@ test('pub linecheck', function (t) {
     assertPubSub(t, 'mqtt://test.mosca.io');
 });
 
+test('local linecheck', function (t) {
+    t.plan(1);
+    assertPubSub(t, 'mqtt://0.0.0.0', '{"data":{"humi":{"value":"60.400","type":"humi","unit":"pct"},"temp":{"value":"22.0","type":"temp","unit":"C"},"soil":{"value":757,"type":"soil","unit":"pct"}},"source":11605683}');
+});
+
 test('peoples linecheck', function (t) {
     t.plan(1);
     assertPubSub(t, 'mqtt://peoplesopen.net', '{"data":{"humi":{"value":"60.400","type":"humi","unit":"pct"},"temp":{"value":"22.0","type":"temp","unit":"C"},"soil":{"value":757,"type":"soil","unit":"pct"}},"source":11605683}');
 });
-
-
