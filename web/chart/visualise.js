@@ -60,7 +60,7 @@ function parseData(inputfile) {
   });
 
   var timevalue = temparray.map(function (elem) {
-    var dateString = moment.unix(elem[4] / 1000).format('MM/DD/YYYY HH:mm');
+    var dateString = moment.unix(elem[3] / 1000).format('MM/DD/YYYY HH:mm');
     return dateString;
   });
 
