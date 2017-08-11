@@ -1,9 +1,9 @@
-var gulp        = require('gulp');
-var browserify  = require('browserify');
-var babelify    = require('babelify');
-var source      = require('vinyl-source-stream');
-// var buffer      = require('vinyl-buffer');
-// var uglify      = require('gulp-uglify');
+const gulp        = require('gulp');
+const browserify  = require('browserify');
+const babelify    = require('babelify');
+const source      = require('vinyl-source-stream');
+// const buffer      = require('vinyl-buffer');
+// const uglify      = require('gulp-uglify');
 
 gulp.task('build', function () {
     return browserify({entries: './assets/src/js/visualise.js', debug: true})
