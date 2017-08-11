@@ -6,7 +6,8 @@ node v7.10.0+
 npm 4.2.0+
 
 # install
-```npm install```
+In production: ```npm install --only=prod```
+During development: ```npm install```
 
 # run
 Executing ```npm run start``` should show something like:
