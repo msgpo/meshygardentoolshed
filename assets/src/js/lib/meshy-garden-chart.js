@@ -1,7 +1,7 @@
 'use strict';
 
-import moment from 'moment';
-import Chart from 'chart.js';
+import moment from "moment";
+import Chart from "chart.js";
 
 const MeshyGardenChart = {
     httpGetAsync: (url, callback) => {
@@ -61,6 +61,6 @@ const MeshyGardenChart = {
         const chart = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(chart, config);
     },
-}
+};
 
 export default MeshyGardenChart;
