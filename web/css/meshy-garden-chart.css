@@ -78,10 +78,15 @@ body {
 }
 
 .chart-demo__back-to-info {
-    background-color: black;
+    background-color: #1fb24b;;
+    color: white;
     margin: -.25rem;
     padding: .25rem;
 
+}
+
+.chart-demo__back-to-info a {
+    color: white;
 }
 .chart-demo__canvas {
     margin: 1rem auto;
