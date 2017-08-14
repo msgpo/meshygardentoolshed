@@ -48,8 +48,17 @@ h6,
     font-weight: 300;
 }
 
+.site-header {
+    background-color: #1fb24b;;
+    color: white;
+    font-size: 2em;
+    margin: -.25rem;
+    padding: 1rem 1.25rem;
+}
+
 .site-name {
     margin: 1rem 0 0;
+    font-weight: 700;
 }
 
 .site-slogan {
@@ -57,8 +66,7 @@ h6,
 }
 
 body {
-    background-color: hsl(138, 70%, 41%);
-    color: white;
+    color: black;
     font-family: Anaheim, serif;
     margin: 0;
     padding: .25rem;
@@ -106,7 +114,8 @@ body {
     text-align: center;
 }
 a {
-    color: white;
+    color: hsl(138, 70%, 33%);
+    font-weight: 600;
     text-decoration: none;
 }
 
@@ -114,6 +123,17 @@ a:hover,
 a:active,
 a:visited {
     text-decoration: underline;
+}
+
+.meshy-garden-chart-demo {
+    background-color: #1fb24b;
+    color: white;
+    margin: 1rem -.25rem 0;
+    padding: 1rem 1.25rem;
+}
+
+.meshy-garden-chart-demo a {
+    color: white;
 }
 
 .meshy-garden-chart-demo--teaser {
@@ -124,4 +144,34 @@ a:visited {
     max-width: 25rem;
     padding: .5rem;
     width: 100%;
+}
+
+.gardenmesh-components {
+    margin: 1rem auto;
+    max-width: 50rem;
+    text-align: left;
+    width: 80%;
+}
+
+.gardenmesh-components__images {
+    background-color: white;
+    float: left;
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 50rem;
+    width: 100%;
+}
+
+.gardenmesh-components__images .gardenmesh-components__image--first {
+    display: block;
+    float: left;
+    margin: 0 1rem 0 0;
+    width: 70%;
+}
+
+.gardenmesh-components__images .gardenmesh-components__image--second {
+    display: block;
+    float: left;
+    margin: 0 0 0 1rem;
+    width: 30%;
 }

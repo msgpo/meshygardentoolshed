@@ -12,11 +12,11 @@
 </header>
 <article class="gardenmesh-components">
     <h1>Garden Gnode</h1>
-    <div>
-        <img src="images/disaster-plant.dot.png" style="float: left; width: 45%;">
-        <img src="images/tomato-plant.png" style="float: right; width: 45%;">
+    <div class="gardenmesh-components__images">
+        <img src="images/disaster-plant.dot.png" style="float: left; width: 45%;" class="gardenmesh-components__image--first">
+        <img src="images/tomato-plant.png" class="gardenmesh-components__image--second">
     </div>
-    <p>Current necessary components:</p>
+    <p style="clear: both;">Current necessary components:</p>
     <ul>
         <li>ESP8266 flashed with NodeMCU firmware</li>
         <li>Variety of enviromental sensors (currently DHT temperature/humidity sensor and capacitive soil moisture
@@ -34,7 +34,7 @@
             <dd>ESP2866</dd>
             <dd><a href="https://www.amazon.com/Makerfocus-NodeMcu-Development-ESP8266-ESP-12F/dp/B01N3P763C/ref=sr_1_2?ie=UTF8&qid=1499834516&sr=8-2&keywords=wemos+d1+mini">More info on amazon.com</a></dd>
         <dt>Humidity &amp; Temperature Sensor</dt>
-            <dd><a href="https://www.sparkfun.com/products/10167">RHT03 (also known by DHT-22)<dd>
+            <dd>RHT03 (also known by DHT-22)<dd>
             <dd>Technical details:
                 <ul>
                     <li>Power: 3-5V</li>
@@ -63,8 +63,7 @@
     </dl>
 
     <h2>More info</h2>
-    <p>Find more information on the <a href="https://github.com/sudomesh/gardenmesh">sudomesh/gardenmesh github
-        repository.</a></p>
+    <p>Find more information in the <a href="https://github.com/sudomesh/gardenmesh">gardenmesh git repository.</a></p>
 </article>
 <article class="meshy-garden-chart-demo">
     <canvas class="meshy-garden-chart-demo--teaser" id="meshy-garden-chart-demo" width="160" height="90"></canvas>
