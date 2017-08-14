@@ -10,7 +10,63 @@
     <h1>Garden Mesh</h1>
     <p class="site-slogan">Feeding the world, one garden at a time.</p>
 </header>
-<article>
+<article class="gardenmesh-components">
+    <h1>Garden Gnode</h1>
+    <div>
+        <img src="images/disaster-plant.dot.png" style="float: left; width: 45%;">
+        <img src="images/tomato-plant.png" style="float: right; width: 45%;">
+    </div>
+    <p>Current necessary components:</p>
+    <ul>
+        <li>ESP8266 flashed with NodeMCU firmware</li>
+        <li>Variety of enviromental sensors (currently DHT temperature/humidity sensor and capacitive soil moisture
+            sensor)</li>
+        <li>Lua script to collect data from sensors and transmit it to MQTT broker</li>
+        <li>BabelD routing on OpenWrt routers</li>
+        <li>RaspberryPi to act as MQTT broker and HTTP server for hosting webpage with data</li>
+    </ul>
+    <p>This project is currently based on the NodeMCU firmware.</p>
+
+    <h2>Components</h2>
+    <p>These are the components that we currently use to gardenmesh:</p>
+    <dl>
+        <dt>Microcontroller &amp; Wifi</dt>
+            <dd>ESP2866</dd>
+            <dd><a href="https://www.amazon.com/Makerfocus-NodeMcu-Development-ESP8266-ESP-12F/dp/B01N3P763C/ref=sr_1_2?ie=UTF8&qid=1499834516&sr=8-2&keywords=wemos+d1+mini">More info on amazon.com</a></dd>
+        <dt>Humidity &amp; Temperature Sensor</dt>
+            <dd><a href="https://www.sparkfun.com/products/10167">RHT03 (also known by DHT-22)<dd>
+            <dd>Technical details:
+                <ul>
+                    <li>Power: 3-5V</li>
+                    <li>Max Current: 2.5mA</li>
+                    <li>Humidity: 0-100%, 2-5% accuracy</li>
+                    <li>Temperature: -40 to 80°C, ±0.5°C accuracy</li>
+                </ul>
+            </dd>
+            <dd><a href="https://www.sparkfun.com/products/10167">More info on sparkfun.com</a><dd>
+        <dt>Capacitive Soil Moisture sensor</dt>
+            <dd>Technical Details:
+                <ul>
+                    <li>Operating Voltage: 3.3-5.5 VDC</li>
+                    <li>Output Voltage: 0 ~ 3.0 VDC</li>
+                </ul>
+            </dd>
+            <dd><a href="https://www.dfrobot.com/product-1385.html">More info on dfrobot.com</a></dd>>
+        <dt>Solar Panel</dt>
+            <dd>Depends on power requirements, 5v 160mA?</dd>
+            <dd><a href="https://www.amazon.com/Zimo-160ma-Solar-Module-Charger/dp/B012Z99DB0">More info on
+                amazon.com</a>
+        <dt>Battery</dt>
+            <dd>LiPO 18650</dd>
+        <dt>Battery charging circuit</dt>
+            <dd>tp4056 charge module?</dd>
+    </dl>
+
+    <h2>More info</h2>
+    <p>Find more information on the <a href="https://github.com/sudomesh/gardenmesh">sudomesh/gardenmesh github
+        repository.</a></p>
+</article>
+<article class="meshy-garden-chart-demo">
     <canvas class="meshy-garden-chart-demo--teaser" id="meshy-garden-chart-demo" width="160" height="90"></canvas>
     <p class="meshy-garden-chart-demo--teaser__link"><a href="./chart">View full size example chart</a></p>
 </article>
