@@ -15,29 +15,34 @@ const MeshyGardenChart = {
         xhr.send(null);
     },
     parseData: tsv => {
-        const tsvToArray = tsv => tsv.split("\n").map(row => row.split("\t"));
-        const esp_array = tsvToArray(tsv);
-        const temp = esp_array
+        const data = tsv.split("\n").map(row => row.split("\t"));
+        const measurements = type => data
+            .filter(elem => elem[0] === type)
+            .map(elem => elem[1]);
+        const formattedDate = data
             .filter(elem => elem[0] === "temp")
-            .map(elem => elem[1]);
-        const humi = esp_array
-            .filter(elem => elem[0] === "humi")
-            .map(elem => elem[1]);
-        const timestamp = esp_array
             .map(elem => moment.unix(elem[3] / 1000).format('MM/DD/YYYY HH:mm'));
         const config = {
             type: 'line',
             data: {
-                labels: timestamp,
-                datasets: [{
-                    label: 'temp',
-                    data: temp,
-                    backgroundColor: "rgba(153,255,51,0.4)"
-                }/*, {
-                 label: 'humidity',
-                 data: y2,
-                 backgroundColor: "rgba(255,153,0,0.4)"
-                 }*/]
+                labels: formattedDate,
+                datasets: [
+                    {
+                        label: 'Temperature (C)',
+                        data: measurements('temp'),
+                        backgroundColor: "rgba(153, 255, 51, .4)"
+                    },
+                    {
+                        label: 'Humidity (%)',
+                        data: measurements('humi'),
+                        backgroundColor: "rgba(255, 51, 153, .4)"
+                    },
+                    {
+                        label: 'Soil (%)',
+                        data: measurements('soil'),
+                        backgroundColor: "rgba(51, 153, 255,.4)"
+                    }
+                 ]
             },
             options: {
                 legend: {
@@ -51,10 +56,21 @@ const MeshyGardenChart = {
                 scales: {
                     xAxes: [{
                         type: "time",
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Day / Time'
+                        }
                         time: {
                             format: 'MM/DD/YYYY HH:mm'
                         }
                     }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        },
+                    }]
                 },
             }
         };
