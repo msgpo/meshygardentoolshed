@@ -9,6 +9,5 @@ document.body.onload = function () {
     if (!document.getElementById(meshyGardenConfig.containerId)) {
         return;
     }
-    meshyGardenConfig.dataSource = "../meshygarden.tsv";
     meshyGardenChart.drawChart();
 };
