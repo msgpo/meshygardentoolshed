@@ -1,5 +1,14 @@
 'use strict';
 
-import MeshyGardenChart from './lib/meshy-garden-chart';
+import meshyGardenChart from './lib/meshy-garden-chart';
 
-document.body.onload = () => MeshyGardenChart.httpGetAsync("../meshygarden.tsv", MeshyGardenChart.parseData);
+document.body.onload = function () {
+    if (meshyGardenConfig === undefined) {
+        return;
+    }
+    if (!document.getElementById(meshyGardenConfig.containerId)) {
+        return;
+    }
+    meshyGardenConfig.dataSource = "../meshygarden.tsv";
+    meshyGardenChart.drawChart();
+};

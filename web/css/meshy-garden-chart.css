@@ -2,14 +2,82 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: hsl(138, 70%, 41%);
-    margin: 0;
-    padding: .25rem;
+@font-face {
+    font-face-name: 'Anaheim';
+    src: url('../fonts/anaheim-regular-webfont.eot');
+    src: url('../fonts/anaheim-regular-webfont.svg');
+    src: url('../fonts/anaheim-regular-webfont.ttf');
+    src: url('../fonts/anaheim-regular-webfont.woff');
 }
 
-.chart-page {
+@font-face {
+    font-face-name: 'Dosis';
+    src: url('../fonts/dosis-regular-webfont.eot');
+    src: url('../fonts/dosis-regular-webfont.svg');
+    src: url('../fonts/dosis-regular-webfont.ttf');
+    src: url('../fonts/dosis-regular-webfont.woff');
+    /*font-weight: 100;*/
+}
+
+@font-face {
+    font-face-name: 'Dosis Light';
+    src: url('../fonts/dosis-light-webfont.eot');
+    src: url('../fonts/dosis-light-webfont.svg');
+    src: url('../fonts/dosis-light-webfont.ttf');
+    src: url('../fonts/dosis-light-webfont.woff');
+    /*font-weight: 100;*/
+}
+
+@font-face {
+    font-face-name: 'Dosis Bold';
+    src: url('../fonts/dosis-bold-webfont.eot');
+    src: url('../fonts/dosis-bold-webfont.svg');
+    src: url('../fonts/dosis-bold-webfont.ttf');
+    src: url('../fonts/dosis-bold-webfont.woff');
+    /*font-weight: 100;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-header {
+    font-family: Dosis, sans-serif;
+    font-weight: 300;
+}
+
+.site-name {
+    margin: 1rem 0 0;
+}
+
+.site-slogan {
+    margin: 0 0 1rem;
+}
+
+body {
+    background-color: hsl(138, 70%, 41%);
+    color: white;
+    font-family: Anaheim, serif;
+    margin: 0;
+    padding: .25rem;
+    text-align: center;
+}
+
+.chart-demo {
     background-color: white;
+}
+
+.chart-demo__back-to-info {
+    background-color: black;
+    margin: -.25rem;
+    padding: .25rem;
+
+}
+.chart-demo__canvas {
+    margin: 1rem auto;
+    max-width: 50rem;
 }
 
 .demo-chart {
@@ -29,5 +97,31 @@ body {
     overflow: hidden;
     position: absolute;
     top: 0;
+    width: 100%;
+}
+
+.meshy-garden-chart-demo--teaser__link a {
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:visited {
+    text-decoration: underline;
+}
+
+.meshy-garden-chart-demo--teaser {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: .5rem;
+    margin: 1rem auto;
+    max-width: 25rem;
+    padding: .5rem;
     width: 100%;
 }

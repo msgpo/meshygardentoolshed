@@ -6,8 +6,50 @@
     <link rel="stylesheet" href="css/meshy-garden-chart.css">
 </head>
 <body>
-<section class="demo-chart">
-    <iframe class="demo-chart__frame" src="chart/index.html" width="400px" height="200px" frameborder="0"></iframe>
-</section>
+<header class="site-header">
+    <h1>Garden Mesh</h1>
+    <p class="site-slogan">Feeding the world, one garden at a time.</p>
+</header>
+<article>
+    <canvas class="meshy-garden-chart-demo--teaser" id="meshy-garden-chart-demo" width="160" height="90"></canvas>
+    <p class="meshy-garden-chart-demo--teaser__link"><a href="./chart">View full size example chart</a></p>
+</article>
+<script>
+    var meshyGardenConfig = {
+        containerId: 'meshy-garden-chart-demo',
+        sensorInfo: {
+            'tempC': {
+                label: 'Temperature (C)',
+                sensorId: 'temp',
+                color: 'rgba(204, 0, 0, .4)',
+                enabled: false,
+                hidden: false
+            },
+            'tempF': {
+                label: 'Temperature (F)',
+                sensorId: 'temp',
+                converter: 'meshyGardenChart.tempCtoF',
+                color: 'rgba(153, 51, 51, .4)',
+                enabled: true,
+                hidden: false
+            },
+            'humi': {
+                label: 'Humidity (%)',
+                sensorId: 'humi',
+                color: 'rgba(0, 204, 0, .4)',
+                enabled: true,
+                hidden: false
+            },
+            'soil': {
+                label: 'Soil (%)',
+                sensorId: 'soil',
+                color: 'rgba(0, 51, 255, .4)',
+                enabled: false,
+                hidden: false
+            }
+        }
+    };
+</script>
+<script src="./js/visualise.min.js"></script>
 </body>
 </html>
