@@ -8,6 +8,10 @@ body {
     padding: .25rem;
 }
 
+.chart-page {
+    background-color: white;
+}
+
 .demo-chart {
     height: 0;
     margin: 1rem 50%;
