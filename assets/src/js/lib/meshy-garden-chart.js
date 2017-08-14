@@ -29,16 +29,25 @@ const MeshyGardenChart = {
                 datasets: [
                     {
                         label: 'Temperature (C)',
+                        yAxisID: 'tempC',
                         data: measurements('temp'),
                         backgroundColor: "rgba(153, 255, 51, .4)"
                     },
                     {
+                        label: 'Temperature (F)',
+                        yAxisID: 'tempF',
+                        data: measurements('temp').map(t => 32 + (t / 5 * 9)),
+                        backgroundColor: "rgba(51, 102, 0, .4)"
+                    },
+                    {
                         label: 'Humidity (%)',
+                        yAxisID: 'humi',
                         data: measurements('humi'),
                         backgroundColor: "rgba(255, 51, 153, .4)"
                     },
                     {
                         label: 'Soil (%)',
+                        yAxisID: 'soil',
                         data: measurements('soil'),
                         backgroundColor: "rgba(51, 153, 255,.4)"
                     }
@@ -58,19 +67,46 @@ const MeshyGardenChart = {
                         type: "time",
                         scaleLabel: {
                             display: true,
-                            labelString: 'Day / Time'
-                        }
+                            labelString: 'Time reported'
+                        },
                         time: {
                             format: 'MM/DD/YYYY HH:mm'
                         }
                     }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
+                    yAxes: [
+                        {
+                            id: "tempC",
                             display: true,
-                            labelString: 'Value'
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperature (C)'
+                            },
                         },
-                    }]
+                        {
+                            id: "tempF",
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperature (F)'
+                            },
+                        },
+                        {
+                            id: "humi",
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Humidity %'
+                            },
+                        },
+                        {
+                            id: "soil",
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Soil %'
+                            },
+                        },
+                    ]
                 },
             }
         };
