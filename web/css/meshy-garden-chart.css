@@ -14,13 +14,20 @@ body {
 
 .demo-chart {
     height: 0;
-    margin: 1rem 50%;
-    max-width: 25rem;
+    margin: 1rem auto;
+    max-width: 40rem;
     padding-bottom: 50%;
     position: relative;
     width: 100%;
 }
 
-.demo-chart__frame {
+.demo-chart iframe {
+    border: 0 none transparent;
+    border-radius: .25rem;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
     width: 100%;
 }
