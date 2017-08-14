@@ -107,7 +107,6 @@ const meshyGardenChart = (function () {
 
     return {
         drawChart: () => {
-            console.log(meshyGardenConfig);
             const url = meshyGardenConfig.dataSource;
             const callback = makeChart;
             const xhr = new XMLHttpRequest();
