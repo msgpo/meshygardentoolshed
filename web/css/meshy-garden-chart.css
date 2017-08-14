@@ -1,4 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
+    background-color: hsl(138, 70%, 41%);
     margin: 0;
-    padding: 0;
+    padding: .25rem;
+}
+
+.demo-chart {
+    height: 0;
+    margin: 1rem 50%;
+    max-width: 25rem;
+    padding-bottom: 50%;
+    position: relative;
+    width: 100%;
+}
+
+.demo-chart__frame {
+    width: 100%;
 }
