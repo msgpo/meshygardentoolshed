@@ -3,38 +3,17 @@
 }
 
 @font-face {
-    font-face-name: 'Anaheim';
-    src: url('../fonts/anaheim-regular-webfont.eot');
-    src: url('../fonts/anaheim-regular-webfont.svg');
-    src: url('../fonts/anaheim-regular-webfont.ttf');
-    src: url('../fonts/anaheim-regular-webfont.woff');
+    font-family: 'Anaheim';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Anaheim'), local('Anaheim Regular'), local('Anaheim-Regular'), url('https://peoplesopen.net/fonts/anaheim-regular-webfont.eot') format('eot'), url('https://peoplesopen.net/fonts/anaheim-regular-webfont.woff') format('woff'), url('https://peoplesopen.net/fonts/anaheim-regular-webfont.ttf') format('truetype'), url('https://peoplesopen.net/fonts/anaheim-regular-webfont.svg') format('svg');
 }
 
 @font-face {
-    font-face-name: 'Dosis';
-    src: url('../fonts/dosis-regular-webfont.eot');
-    src: url('../fonts/dosis-regular-webfont.svg');
-    src: url('../fonts/dosis-regular-webfont.ttf');
-    src: url('../fonts/dosis-regular-webfont.woff');
-    /*font-weight: 100;*/
-}
-
-@font-face {
-    font-face-name: 'Dosis Light';
-    src: url('../fonts/dosis-light-webfont.eot');
-    src: url('../fonts/dosis-light-webfont.svg');
-    src: url('../fonts/dosis-light-webfont.ttf');
-    src: url('../fonts/dosis-light-webfont.woff');
-    /*font-weight: 100;*/
-}
-
-@font-face {
-    font-face-name: 'Dosis Bold';
-    src: url('../fonts/dosis-bold-webfont.eot');
-    src: url('../fonts/dosis-bold-webfont.svg');
-    src: url('../fonts/dosis-bold-webfont.ttf');
-    src: url('../fonts/dosis-bold-webfont.woff');
-    /*font-weight: 100;*/
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Dosis Regular'), local('Dosis-Regular'), url('https://peoplesopen.net/fonts/dosis-regular-webfont.eot') format('eot'), url('https://peoplesopen.net/fonts/dosis-regular-webfont.woff') format('woff'), url('https://peoplesopen.net/fonts/dosis-regular-webfont.ttf') format('truetype'), url('https://peoplesopen.net/fonts/dosis-regular-webfont.svg') format('svg');
 }
 
 h1,
@@ -45,7 +24,7 @@ h5,
 h6,
 .site-header {
     font-family: Dosis, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .site-header {
@@ -68,6 +47,7 @@ h6,
 body {
     color: black;
     font-family: Anaheim, serif;
+    font-weight: 400;
     margin: 0;
     padding: .25rem;
     text-align: center;
