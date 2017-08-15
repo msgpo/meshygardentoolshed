@@ -8,84 +8,79 @@
 <body>
 <header class="site-header">
     <h1>Garden Mesh</h1>
-    <p class="site-slogan">Feeding the world, one garden at a time.</p>
+    <p class="site-slogan">Feeding your community, one garden at a time.</p>
 </header>
 <article>
 </article>
 <article class="garden-gnode">
     <h1>Garden Mesh and Garden Gnodes</h1>
-    <p><strong>Garden Gnodes</strong> are very affordable, Wi-Fi enabled environmental sensors that are easy for anyone
-        to use. Take charge of your garden by recording and logging real-time data from wherever you want.</p>
-    <p>Environmental sensors are nothing new, but unfortunately comparable systems on the market are priced at about
-        $100 per unit, pricing them out of reach for most community gardeners and home gardeners in the United States
+    <p><strong>Garden Gnodes</strong> are affordable, WiFi enabled, environmental sensors that are easy for anyone
+        to use. Take charge of your plants by logging real-time data from every corner of your garden.</p>
+    <p>Environmental sensors are nothing new, but unfortunately, comparable systems are priced around 
+        $100 per unit, making them inaccessible to most community gardeners and home horticulturalist in the United States
         and around the world.</p>
-    <p>By using the unique capabilities of the ESP8266 WI-FI processor and affordable, mass produced digital sensors, we
-        have been able to build a unit that can measure the moisture level of the soil, humidity and temperature of the
-        air, and the period and intensity of the light, in real-time, and send the data to any Wi-Fi enabled device, and
-        all for only a few dollars per unit (we're aiming for $5 or less).</p>
-    <p>The <em>Gnodes</em> in a <strong>Garden Mesh</strong> do not need to be connected to the internet; the <em>Garden
-        Mesh</em> forms a Wi-Fi network wherever it is deployed. The <em>Gnodes</em> can automatically communicate with
-        any number of sister units within range. This means even &quot;off grid&quot; communities can take advantage of
-        the full functionality of these sensors.</p>
-    <p>The &quot;mesh&quot; part of a <em>Garden Mesh</em> means that each unit can communicate through a daisy chain,
-        to any other unit, giving it a unique capability as a kind of &quot;walkie-talkie&quot;; able to transmit text
-        messages from any two Wi-Fi enabled devices connected to the mesh network.</p>
+    <p>By using the unique capabilities of the ESP8266 WiFi microcontroller and affordable, mass produced digital sensors 
+        (or designing our own!), we are building units that can measure soil moisture levels, ambient humidity, air temperature, 
+        and light intensity in real-time, and send the data to any WiFi enabled device.</p>
+    <p>Designed to be expandabled, the <em>Garden Gnodes</em> provide a plethora of additional digital and analog inputs.
+        This enables gardeners to add or remove sensors, so you can measure only the conditions you care about.</p>
+    <p>The <em>Gnodes</em> in a <strong>Garden Mesh</strong> do not need to be connected to the internet. The <em>Garden
+        Mesh</em> forms a WiFi network wherever it is deployed, so even the most remote &quot;off-grid&quot; communities 
+        can take full advantage of data collected by their <em>Gnodes</em>.</p>
+    <p>The &quot;mesh&quot; part of a <em>Garden Mesh</em> works by connecting every <em>Gnode</em> to every other <em>Gnode</em>,
+        either directly over WiFi, or daisy-chained through the WiFi of neighboring <em>Gnodes</em>.
+        This way, the mesh acts as single entity, dynamically generating a wireless network that could easily reach into 
+        every acre of the biggest backyards and furthest fields.
+        Via a <em>Garden Mesh</em>, data can be transmitted from one end of a garden to the other with no need for pricey antennaes 
+        or expensive radio equipment.</p>
+    <p>The diagram below shows the most simple setup of a <em>Garden Mesh</em>:</p> 
     <div class="gardenmesh-components__images">
         <a href="./images/disaster-plant.dot.png"><img src="./images/disaster-plant.dot.png" style="float: left; width: 45%;" class="gardenmesh-components__image--first"></a>
         <a href="./images/tomato-plant.png"><img src="./images/tomato-plant.png" class="gardenmesh-components__image--second"></a>
     </div>
-    <p style="clear: both;">Current necessary components:</p>
+    <p style="clear: both;">Current specifications:</p>
     <ul>
-        <li>ESP8266 flashed with NodeMCU firmware</li>
-        <li>Variety of enviromental sensors (currently DHT temperature/humidity sensor and capacitive soil moisture
-            sensor)</li>
-        <li>Lua script to collect data from sensors and transmit it to MQTT broker</li>
-        <li>BabelD routing on OpenWrt routers</li>
-        <li>RaspberryPi to act as MQTT broker and HTTP server for hosting webpage with data</li>
+        <li><em>Garden Gnode</em> = ESP8266 microcontroller + a variety of enviromental sensors</li>
+        <li>Lua script on <em>Gnodes</em> to collect data from sensors, transmit via MQTT protocol</li>
+        <li>Ad-hoc routing protocol to create mesh of <em>Gnodes</em></li>
+        <li>Home WiFi router within reach of at least one <em>Gnode</em> to act as uplink to local server</li>
+        <li>RaspberryPi (or other inexpensive computer) to act as local server for hosting data, web app</li>
+        <li>JavaScript web app runs on client (smartphone or laptop) and charts data</li> 
     </ul>
-    <p>This project is currently based on the NodeMCU firmware.</p>
+    <p>This project is currently based on the NodeMCU firmware. For more info on this firmware, <a href="http://nodemcu.readthedocs.io/">see the documentation</a></p>
 
     <h1>Garden Gnode Components</h1>
     <p>These are the components that we currently use for the Garden Gnodes:</p>
     <dl>
         <dt>Microcontroller &amp; Wifi</dt>
             <dd>ESP2866</dd>
-            <dd><a href="https://www.amazon.com/Makerfocus-NodeMcu-Development-ESP8266-ESP-12F/dp/B01N3P763C/ref=sr_1_2?ie=UTF8&qid=1499834516&sr=8-2&keywords=wemos+d1+mini">More info on amazon.com</a></dd>
+            <dd><a href="http://espressif.com/en/products/hardware/esp8266ex/overview">More info from Espressif</a></dd>
         <dt>Humidity &amp; Temperature Sensor</dt>
-            <dd>RHT03 (also known by DHT-22)<dd>
-            <dd>Technical details:
-                <ul>
-                    <li>Power: 3-5V</li>
-                    <li>Max Current: 2.5mA</li>
-                    <li>Humidity: 0-100%, 2-5% accuracy</li>
-                    <li>Temperature: -40 to 80°C, ±0.5°C accuracy</li>
-                </ul>
-            </dd>
-            <dd><a href="https://www.sparkfun.com/products/10167">More info on sparkfun.com</a><dd>
+            <dd>DHT-22 (also known by RHT03)<dd>
+            <dd><a href="https://www.sparkfun.com/products/10167">More info from sparkfun.com</a><dd>
         <dt>Capacitive Soil Moisture sensor</dt>
-            <dd>Technical Details:
-                <ul>
-                    <li>Operating Voltage: 3.3-5.5 VDC</li>
-                    <li>Output Voltage: 0 ~ 3.0 VDC</li>
-                </ul>
+            <dd>Not much more than two pieces of metal, should be able to design our own 
             </dd>
-            <dd><a href="https://www.dfrobot.com/product-1385.html">More info on dfrobot.com</a></dd>
+            <dd><a href="http://www.instructables.com/id/Turn-a-pencil-drawing-into-a-capacitive-sensor-for/">See DIY instructions</a></dd>
         <dt>Solar Panel</dt>
-            <dd>Depends on power requirements, 5v 160mA?</dd>
-            <dd><a href="https://www.amazon.com/Zimo-160ma-Solar-Module-Charger/dp/B012Z99DB0">More info on
-                amazon.com</a>
+            <dd>Need Maximum Power Point Tracking(MPPT) module for safe, efficient charging</dd>
+            <dd><a href="https://cdn.sparkfun.com/datasheets/Prototyping/LT3652.pdf">More info on MPPT solar chargers</a>
         <dt>Battery</dt>
-            <dd>LiPO 18650</dd>
+            <dd>18650 Lithium Polymer battery with protection circuit</dd>
+            <dd><a href="http://shaddack.brutowave.com/projects/method_SimpleLiPolyOverdischargeCutoff/">Documentation on protection circuits</A>
         <dt>Battery charging circuit</dt>
-            <dd>tp4056 charge module?</dd>
+            <dd>TP4056 module</dd>
+            <dd><a href="https://dlnmh9ip6v2uc.cloudfront.net/datasheets/Prototyping/TP4056.pdf">More info in datasheet</a>
     </dl>
 
     <h2>More info</h2>
-    <p>Find more information in the <a href="https://github.com/sudomesh/gardenmesh">gardenmesh git repository.</a></p>
+    <p>Based in Oakland, CA., Garden Mesh seeks to provide community support for local gardeners and encourages you and your community 
+        to fork the project and <strong>Build Your Own Internet of Plants</strong>.</p>  
+    <p>Find more information on our github, <a href="https://github.com/sudomesh/gardenmesh">gardenmesh git repository.</a></p>
 </article>
 <article class="meshy-garden-chart-demo">
     <canvas class="meshy-garden-chart-demo--teaser" id="meshy-garden-chart-demo" width="160" height="90"></canvas>
-    <p class="meshy-garden-chart-demo--teaser__link"><a href="./chart">View full size example chart</a></p>
+    <p class="meshy-garden-chart-demo--teaser__link"><a href="./chart">View live demo chart</a></p>
 </article>
 <script>
     var meshyGardenConfig = {
