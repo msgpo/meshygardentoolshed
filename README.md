@@ -1,6 +1,8 @@
 # meshygardentoolshed
 a service to store gardenmesh measurements
 
+Also see https://peoplesopen.net/gardenmesh .
+
 # prequisites
 node v7.10.0+
 npm 4.2.0+
